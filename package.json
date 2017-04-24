@@ -1,0 +1,26 @@
+{
+    "name": "way2web-charts",
+    "version": "0.0.7",
+    "description": "Add highcharts to the page with ajax.",
+    "files": [
+        "js/charts.core.js"
+    ],
+    "main": "js/charts.core.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Way2WebPieter/Chart.git"
+    },
+    "keywords": [
+        "highcharts",
+        "javascript"
+    ],
+    "author": "Pieter Wigboldus [Way2Web] <pieter@way2web.nl>",
+    "license": "GPL-3.0",
+    "bugs": {
+        "url": "https://github.com/Way2WebPieter/Chart/issues"
+    },
+    "homepage": "https://github.com/Way2WebPieter/Chart#readme",
+    "dependencies": {
+        "highcharts": "5.0.7"
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "name": "way2web-charts",
+    "description": "Add highcharts to the page with ajax.",
+    "main": "js/charts.core.js",
+    "authors": [
+        "Pieter Wigboldus [Way2Web] <pieter@way2web.nl>"
+    ],
+    "license": "GPL-3.0",
+    "keywords": [
+        "highcharts",
+        "javascript"
+    ],
+    "homepage": "https://github.com/Way2WebPieter/Chart",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "moduleType": "globals"
+}

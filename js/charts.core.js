@@ -75,7 +75,9 @@ var Chart = (function(element, config) {
          */
         addSeries: function(index, serie) {
             if(serie.name) {
-                highchart.series[index].name = serie.name;
+                highchart.series[index].update({
+                    name:serie.name
+                }, false);
             }
 
             highchart.series[index].setData(serie.data);

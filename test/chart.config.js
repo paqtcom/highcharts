@@ -20,7 +20,7 @@
      */
     Charts.config = {};
 
-    Charts.config.all = {
+    Charts.config['all'] = {
         type: 'line',
 
         title: false,
@@ -49,7 +49,7 @@
         },
 
         legend: {
-            enabled: false
+            enabled: true
         },
 
         series: [{

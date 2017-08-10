@@ -39,13 +39,13 @@
             title: {
                 text: false
             },
-            gridLineWidth: 0,
+            gridLineWidth:      0,
             minorGridLineWidth: 0
         },
 
         xAxis: {
             type: 'datetime',
-            min: Date.UTC(1970, 0, 0)
+            min:  Date.UTC(1970, 0, 0)
         },
 
         legend: {
@@ -75,8 +75,8 @@
         },
 
         series: [{
-            type: 'pie',
-            innerSize: '60%',
+            type:       'pie',
+            innerSize:  '60%',
             dataLabels: {
                 formatter: Charts.formatter.pieLabel
             }

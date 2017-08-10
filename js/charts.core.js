@@ -9,6 +9,8 @@
 window.Chart = (function(element, config) {
     'use strict';
 
+    var version = '1.0.4';
+
     var highchart;
 
     var settings = {
@@ -129,6 +131,7 @@ window.Chart = (function(element, config) {
         add:      functions.addChart,
         filter:   functions.filterChart,
         update:   functions.updateChart,
-        init:     functions.init
+        init:     functions.init,
+        version:  version
     };
 });

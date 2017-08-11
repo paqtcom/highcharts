@@ -6,25 +6,27 @@
  *
  * @return {object}
  */
-var Chart = (function(element, config) {
+window.Chart = (function(element, config) {
     'use strict';
+
+    var version = '1.0.4';
 
     var highchart;
 
     var settings = {
-        id: null,
-        url: null,
-        chart: null,
+        id:     null,
+        url:    null,
+        chart:  null,
         series: null,
         titles: {}
     };
 
     var attributes = {
-        url: 'chart-url',
+        url:        'chart-url',
         xAxisTitle: 'chart-xaxis-title',
         yAxisTitle: 'chart-yaxis-title',
         zAxisTitle: 'chart-zaxis-title',
-        preset: 'chart-preset'
+        preset:     'chart-preset'
     };
 
     var functions = {
@@ -126,9 +128,10 @@ var Chart = (function(element, config) {
 
     return {
         settings: settings,
-        add: functions.addChart,
-        filter: functions.filterChart,
-        update: functions.updateChart,
-        init: functions.init
+        add:      functions.addChart,
+        filter:   functions.filterChart,
+        update:   functions.updateChart,
+        init:     functions.init,
+        version:  version
     };
 });

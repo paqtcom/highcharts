@@ -4,6 +4,8 @@ path=$1
 #
 # Use the optional --continue flag to run Gulp without breaking on warnings/errors
 #
+# Run: ./buildHook.sh $PWD
+#
 continueFlag=$2
 
 if [ -z "$path" ] || [ ! -d "$path" ]; then

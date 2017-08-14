@@ -54,6 +54,7 @@ export const taskConfig = {
     scripts: [
         new Task(
             [
+                'jquery/dist/jquery.js',
                 'highcharts/highcharts.js'
             ],
             folders.npm,

@@ -9,7 +9,7 @@
 window.Chart = (function(element, config) {
     'use strict';
 
-    var version = '1.0.4';
+    var version = '1.0.5';
 
     var highchart;
 

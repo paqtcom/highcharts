@@ -9,7 +9,7 @@
 window.Chart = (function(element, config) {
     'use strict';
 
-    var version = '1.0.5';
+    var version = '1.0.6';
 
     var highchart;
 
@@ -77,6 +77,10 @@ window.Chart = (function(element, config) {
          */
         addSeries: function(index, serie) {
             if(serie.name) {
+                if(!highchart.series[index]) {
+                    return;
+                }
+
                 highchart.series[index].update({
                     name: serie.name
                 }, false);

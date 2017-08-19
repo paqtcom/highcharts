@@ -19,6 +19,7 @@
      * The chart config settings.
      */
     Charts.config = {};
+    Charts.loaded = 0;
 
     Charts.config['all'] = {
         type: 'line',
@@ -27,6 +28,19 @@
 
         credits: {
             enabled: false
+        },
+
+        chart: {
+            events: {
+                load: function() {
+                    Charts.loaded++;
+
+                    if(Charts.loaded == Object.keys(Charts.items).length) {
+                        // eslint-disable-next-line no-console
+                        console.log(Charts.loaded);
+                    }
+                }
+            }
         },
 
         series: []

@@ -11,7 +11,7 @@
         "Chart": false,
     },
     "rules": {
-        "no-console": "error",
+        "no-console": "warn",
         "no-cond-assign": "error",
         "curly": ["error", "all"],
         "no-multi-spaces": "error",

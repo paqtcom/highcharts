@@ -23,6 +23,7 @@ window.Chart = (function(element, config) {
 
     var attributes = {
         url:        'chart-url',
+        title:      'chart-title',
         xAxisTitle: 'chart-xaxis-title',
         yAxisTitle: 'chart-yaxis-title',
         zAxisTitle: 'chart-zaxis-title',
@@ -43,6 +44,7 @@ window.Chart = (function(element, config) {
             settings.id = element.attr('id');
             settings.preset = element.data(attributes.preset);
             settings.url = element.data(attributes.url);
+            settings.title = element.data(attributes.title);
             settings.titles.xAxis = element.data(attributes.xAxisTitle);
             settings.titles.yAxis = element.data(attributes.yAxisTitle);
             settings.titles.zAxis = element.data(attributes.zAxisTitle);
@@ -67,6 +69,12 @@ window.Chart = (function(element, config) {
 
             $.each(settings.series, functions.addSeries);
             $.each(settings.titles, functions.setTitle);
+
+            if(settings.title) {
+                highchart.setTitle({
+                    text: settings.title
+                });
+            }
         },
 
         /**

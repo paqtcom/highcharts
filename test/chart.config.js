@@ -24,8 +24,6 @@
     Charts.config['all'] = {
         type: 'line',
 
-        title: false,
-
         credits: {
             enabled: false
         },

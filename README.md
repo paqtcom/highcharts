@@ -7,6 +7,7 @@
 To connect the highchart, you have to set the class `js-chart` and an `id`.
 To connect the chart settings, you can bind on the id of the div. (e.g. `js-charts-line`)
 In the `Charts.config` you can set all the settings for the chart.
+You can set the chart title in `data-chart-title`.
 You can also set the ajax url in the `data-chart-url`
 The JSON contain the data and the name.
 The labels for the x, y and z axis can also be set the data attributes (e.g. `data-chart-xaxis-title`)
@@ -49,6 +50,27 @@ You can use all these event types:
 * selection
 
 http://api.highcharts.com/highcharts/chart.events
+
+
+## Test the package.
+
+To test the package, clone the package to your system.
+Than run this command.
+
+```
+npm run build
+```
+
+This will copy the test files to the dist, and also build the package files include the dependencies.
+
+When this script is complete without errors, you can open `dist/index.html` in your browser.
+Open the dev tools, tab console, and you see all the results of the tests.
+
+If you only want to check the eslint rules, just run.
+
+```
+npm run lint
+```
 
 [downloads-image]: https://img.shields.io/npm/dt/way2web-highcharts.svg
 [npm-url]: https://www.npmjs.com/package/way2web-highcharts

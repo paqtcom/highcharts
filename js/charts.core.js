@@ -27,7 +27,8 @@ window.Chart = (function(element, config) {
         xAxisTitle: 'chart-xaxis-title',
         yAxisTitle: 'chart-yaxis-title',
         zAxisTitle: 'chart-zaxis-title',
-        preset:     'chart-preset'
+        preset:     'chart-preset',
+        dynamic:    'chart-dynamic'
     };
 
     var functions = {
@@ -44,6 +45,7 @@ window.Chart = (function(element, config) {
             settings.id = element.attr('id');
             settings.preset = element.data(attributes.preset);
             settings.url = element.data(attributes.url);
+            settings.dynamic = element.data(attributes.dynamic);
             settings.title = element.data(attributes.title);
             settings.titles.xAxis = element.data(attributes.xAxisTitle);
             settings.titles.yAxis = element.data(attributes.yAxisTitle);
@@ -84,6 +86,12 @@ window.Chart = (function(element, config) {
          * @param {object} serie
          */
         addSeries: function(index, serie) {
+            if(settings.dynamic) {
+                highchart.addSeries(serie);
+
+                return;
+            }
+
             if(serie.name) {
                 if(!highchart.series[index]) {
                     return;

@@ -71,6 +71,27 @@
         }]
     };
 
+    Charts.config['js-charts-dynamic'] = {
+        type: 'bar',
+
+        yAxis: {
+            title: {
+                text: false
+            },
+            gridLineWidth:      0,
+            minorGridLineWidth: 0
+        },
+
+        xAxis: {
+            type: 'datetime',
+            min:  Date.UTC(1970, 0, 0)
+        },
+
+        legend: {
+            enabled: true
+        }
+    };
+
     Charts.config['js-charts-pie'] = {
         type: 'pie',
 

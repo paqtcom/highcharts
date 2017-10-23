@@ -16,6 +16,15 @@ Other information must be set in the config.
 See also the example files in the test folder.
 
 
+## Load the complete series from the ajax request.
+
+If you want to load the complete series from the ajax request, add the `data-chart-dynamic` attribute.
+Now all the data in the serie, like data, name and type, will be set.
+You dont have to preset the series, it will add all series from the ajax request.
+
+
+## Events.
+
 Example of a custom event.
 ```
 Charts.loaded = 0;

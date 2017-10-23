@@ -1,6 +1,6 @@
 # Chart
 
-[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url]
+[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-stats]
 
 ## Add highcharts to the page with ajax.
 
@@ -50,6 +50,7 @@ You can use all these event types:
 
 http://api.highcharts.com/highcharts/chart.events
 
-[downloads-image]: https://img.shields.io/npm/dm/way2web-highcharts.svg
+[downloads-image]: https://img.shields.io/npm/dt/way2web-highcharts.svg
 [npm-url]: https://www.npmjs.com/package/way2web-highcharts
 [npm-image]: https://img.shields.io/npm/v/way2web-highcharts.svg
+[npm-stats]: https://npm-stat.com/charts.html?package=way2web-highcharts

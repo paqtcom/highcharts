@@ -4,6 +4,8 @@
 
 ## Add highcharts to the page with ajax.
 
+This package use highcharts 6.0.x.
+
 To connect the highchart, you have to set the class `js-chart` and an `id`.
 To connect the chart settings, you can bind on the id of the div. (e.g. `js-charts-line`)
 In the `Charts.config` you can set all the settings for the chart.
@@ -80,6 +82,20 @@ If you only want to check the eslint rules, just run.
 ```
 npm run lint
 ```
+
+
+## Sass
+
+Highcharts 6.x.x contains a css and scss file in the css folder.
+In your scss file from the project, you have to disable the linter for the highcharts file.
+```
+/**
+ * Disable the linting because the package contain a sass and css file.
+ */
+// stylelint-disable-next-line
+@import 'highcharts/css/highcharts.scss';
+```
+
 
 [downloads-image]: https://img.shields.io/npm/dt/way2web-highcharts.svg
 [npm-url]: https://www.npmjs.com/package/way2web-highcharts

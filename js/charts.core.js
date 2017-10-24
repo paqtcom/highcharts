@@ -9,7 +9,7 @@
 window.Chart = (function(element, config) {
     'use strict';
 
-    var version = '1.0.7';
+    var version = '1.1.0';
 
     var highchart;
 
@@ -23,10 +23,12 @@ window.Chart = (function(element, config) {
 
     var attributes = {
         url:        'chart-url',
+        title:      'chart-title',
         xAxisTitle: 'chart-xaxis-title',
         yAxisTitle: 'chart-yaxis-title',
         zAxisTitle: 'chart-zaxis-title',
-        preset:     'chart-preset'
+        preset:     'chart-preset',
+        dynamic:    'chart-dynamic'
     };
 
     var functions = {
@@ -43,6 +45,8 @@ window.Chart = (function(element, config) {
             settings.id = element.attr('id');
             settings.preset = element.data(attributes.preset);
             settings.url = element.data(attributes.url);
+            settings.dynamic = element.data(attributes.dynamic);
+            settings.title = element.data(attributes.title);
             settings.titles.xAxis = element.data(attributes.xAxisTitle);
             settings.titles.yAxis = element.data(attributes.yAxisTitle);
             settings.titles.zAxis = element.data(attributes.zAxisTitle);
@@ -67,6 +71,12 @@ window.Chart = (function(element, config) {
 
             $.each(settings.series, functions.addSeries);
             $.each(settings.titles, functions.setTitle);
+
+            if(settings.title) {
+                highchart.setTitle({
+                    text: settings.title
+                });
+            }
         },
 
         /**
@@ -76,6 +86,12 @@ window.Chart = (function(element, config) {
          * @param {object} serie
          */
         addSeries: function(index, serie) {
+            if(settings.dynamic) {
+                highchart.addSeries(serie);
+
+                return;
+            }
+
             if(serie.name) {
                 if(!highchart.series[index]) {
                     return;

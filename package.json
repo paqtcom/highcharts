@@ -1,6 +1,6 @@
 {
     "name": "way2web-highcharts",
-    "version": "1.1.0",
+    "version": "2.0.0",
     "description": "Add highcharts to the page with ajax.",
     "files": [
         "js/charts.core.js"
@@ -60,6 +60,6 @@
     },
     "dependencies": {
         "jquery": ">=3.2.1",
-        "highcharts": "6.0.2"
+        "highcharts": "6.0.x"
     }
 }

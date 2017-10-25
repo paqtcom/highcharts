@@ -9,7 +9,7 @@
 window.Chart = (function(element, config) {
     'use strict';
 
-    var version = '2.0.0';
+    var version = '2.1.0';
 
     var highchart;
 
@@ -143,15 +143,31 @@ window.Chart = (function(element, config) {
             }
 
             highchart[axis][axisIndex].update(values);
+        },
+
+        /**
+         * Show the loading message.
+         */
+        showLoading: function() {
+            highchart.showLoading();
+        },
+
+        /**
+         * Hide the loading message.
+         */
+        hideLoading: function() {
+            highchart.hideLoading();
         }
     };
 
     return {
-        settings: settings,
-        add:      functions.addChart,
-        filter:   functions.filterChart,
-        update:   functions.updateChart,
-        init:     functions.init,
-        version:  version
+        settings:    settings,
+        add:         functions.addChart,
+        filter:      functions.filterChart,
+        update:      functions.updateChart,
+        init:        functions.init,
+        showLoading: functions.showLoading,
+        hideLoading: functions.hideLoading,
+        version:     version
     };
 });

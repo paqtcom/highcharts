@@ -26,13 +26,7 @@ function scripts() {
             .on('end', utilities.logBegin('Scripts'))
             .pipe(utilities.initSourceMaps())
             .pipe(concat(task.filename))
-            .pipe(
-                uglify(packageOptions.uglify).on('error', function(error) {
-                    var stream = this;
-
-                    utilities.onError(stream, error, error.cause.message, error.cause.filename);
-                })
-            )
+            .pipe(uglify())
             .pipe(utilities.writeSourceMaps())
             .on('end', utilities.logEnd(task))
             .pipe(gulp.dest(task.saveto));

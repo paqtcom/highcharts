@@ -9,7 +9,7 @@
 window.Chart = (function(element, config) {
     'use strict';
 
-    var version = '2.2.1';
+    var version = '2.3.0';
 
     var highchart;
 
@@ -171,3 +171,7 @@ window.Chart = (function(element, config) {
         version:     version
     };
 });
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = window.Chart;
+}

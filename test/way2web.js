@@ -9,4 +9,8 @@
     };
 })(window.Way2web = window.Way2web || {});
 
-$(document).ready(window.Way2web.onDomReady);
+if (document.readyState != 'loading') {
+    window.Way2web.onDomReady();
+} else {
+    document.addEventListener('DOMContentLoaded', window.Way2web.onDomReady);
+}

@@ -1,14 +1,25 @@
 {
     "name": "way2web-highcharts",
-    "version": "2.3.0",
+    "version": "3.0.0",
     "description": "Add highcharts to the page with ajax.",
     "files": [
-        "js/charts.core.js"
+        "src/charts.js",
+        "dist/charts.js",
+        "dist/charts.js.map",
+        "dist/charts.module.js",
+        "dist/charts.module.js.map",
+        "dist/charts.modern.js",
+        "dist/charts.modern.js.map",
+        "dist/charts.umd.js",
+        "dist/charts.umd.js.map"
     ],
-    "main": "js/charts.core.js",
+    "source": "src/charts.js",
+    "main": "dist/charts.js",
+    "module": "dist/charts.module.js",
+    "unpkg": "dist/charts.umd.js",
     "repository": {
-        "type": "mercurial",
-        "url": "https://bitbucket.org/way2dev/highcharts"
+        "type": "git",
+        "url": "https://github.com/Way2Web/highcharts.git"
     },
     "keywords": [
         "highcharts",
@@ -26,42 +37,27 @@
     },
     "license": "MIT",
     "bugs": {
-        "url": "https://bitbucket.org/way2dev/highcharts/issues"
+        "url": "https://github.com/Way2Web/highcharts/issues"
     },
-    "homepage": "https://bitbucket.org/way2dev/highcharts/overview#readme",
+    "homepage": "https://github.com/Way2Web/highcharts#readme",
     "scripts": {
-        "build": "./bitbucket-pipelines/assets.sh",
-        "lint": "eslint js/*.js --config .eslintrc",
+        "build": "microbundle",
+        "dev": "microbundle watch",
+        "lint": "eslint src/*.js --config .eslintrc",
         "publish-to-npm": "./bitbucket-pipelines/npm.sh"
     },
     "devDependencies": {
-        "autoprefixer": "^9.8.6",
-        "babel-preset-es2015": "^6.24.1",
-        "babel-register": "^6.26.0",
-        "browser-sync": "^2.26.12",
-        "del": "^4.1.1",
-        "gulp": "^4.0.2",
-        "gulp-autoprefixer": "^6.1.0",
-        "gulp-concat": "^2.6.1",
-        "gulp-data": "^1.3.1",
-        "gulp-eslint": "^5.0.0",
-        "gulp-modernizr": "^3.4.1",
-        "gulp-rev": "^9.0.0",
-        "gulp-sass": "^4.1.0",
-        "gulp-sourcemaps": "^2.6.5",
-        "gulp-stylelint": "^9.0.0",
-        "gulp-uglify": "^3.0.2",
-        "gulp-util": "^3.0.8",
-        "merge-stream": "^2.0.0",
-        "node-notifier": "^5.4.3",
-        "parse-filepath": "^1.0.2",
-        "postcss-reporter": "^6.0.1",
-        "postcss-urlrewrite": "^0.2.2",
-        "rev-del": "^2.0.0",
-        "stylelint": "^10.1.0"
+        "@babel/core": "^7.11.6",
+        "@babel/preset-env": "^7.11.5",
+        "@babel/register": "^7.11.5",
+        "babel-core": "^7.0.0-bridge.0",
+        "eslint": "^6.8.0",
+        "eslint-config-prettier": "^6.11.0",
+        "eslint-plugin-prettier": "^3.1.4",
+        "microbundle": "^0.12.3",
+        "prettier": "^1.19.1"
     },
     "dependencies": {
-        "highcharts": "^7.2.2",
-        "jquery": "^3.5.1"
+        "highcharts": "^7.2.2"
     }
 }

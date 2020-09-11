@@ -1,7 +1,10 @@
 {
-    "extends": "eslint:recommended",
+    "extends": [
+        "eslint:recommended",
+        "prettier"
+    ],
     "env": {
-        "es6": false,
+        "es6": true,
         "node": true,
         "jquery": true,
         "browser": true
@@ -11,8 +14,11 @@
         "Chart": false,
         "Way2web": false
     },
+    "parserOptions": {
+        "sourceType": "module"
+    },
     "rules": {
-        "no-console": "error",
+        "no-console": "warn",
         "no-cond-assign": "error",
         "curly": [
             "error",

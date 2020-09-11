@@ -14,34 +14,35 @@ if [ -z "$path" ] || [ ! -d "$path" ]; then
     exit
 fi
 
-echo "====== Running build hook ======="
+echo "====== Set the proper node version ======="
+if [ -f ~/.nvm/nvm.sh ]; then
+    . ~/.nvm/nvm.sh
+fi
 
-echo "=== $gulpfile start ==="
-cd $path/$gulpfile
+nvm use 14
+
+echo "====== Running build hook ======="
 
 if [ -f package.json ]; then
     find . -maxdepth 1 -name package.json | grep package > /dev/null 2>&1
     if [ $? == 0 ]; then
-        echo "= yarn ="
-        yarn install
+        echo "= npm ="
+        npm ci
         if [ $? != 0 ]; then
             exit 1
         fi
     fi
 
-    if [ -f node_modules/gulp/bin/gulp.js ]; then
-        echo "= gulp ="
-        node_modules/gulp/bin/gulp.js $continueFlag
-        if [ $? != 0 ]; then
-            exit 1
-        fi
-    else
-        echo "No gulp installed"
+    echo "= build ="
+    npm run build $continueFlag
+    if [ $? != 0 ]; then
+        exit 1
     fi
 else
     echo "Package.json doesn't exist"
 fi
 
-echo "=== $gulpfile end ==="
+echo "====== Set node back to the default version ======"
+nvm use default
 
 echo "================================="

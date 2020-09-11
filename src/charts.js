@@ -1,3 +1,5 @@
+import Highcharts from 'highcharts';
+
 /**
  * Add charts to the page with ajax.
  *
@@ -9,7 +11,7 @@
 window.Chart = (function(element, config) {
     'use strict';
 
-    var version = '2.3.0';
+    var version = '3.0.0';
 
     var highchart;
 
@@ -51,7 +53,11 @@ window.Chart = (function(element, config) {
             settings.titles.yAxis = element.data(attributes.yAxisTitle);
             settings.titles.zAxis = element.data(attributes.zAxisTitle);
 
-            $.getJSON(settings.url, functions.addChart);
+            fetch(settings.url)
+                .then(response => response.json())
+                .then(data => {
+                    functions.addChart(data);
+                });
         },
 
         /**
@@ -60,17 +66,18 @@ window.Chart = (function(element, config) {
          * @param {object} series
          */
         addChart: function(series) {
-            settings.chart = $.extend({}, config['all'], config[settings.preset] || {});
+            settings.chart = Object.assign({}, config['all'], config[settings.preset] || {}); ;
 
             settings.series = series;
+            const HighchartsPackage = Highcharts || window.Highcharts;
 
-            highchart = Highcharts.chart(
+            highchart = HighchartsPackage.chart(
                 settings.id,
                 settings.chart
             );
 
-            $.each(settings.series, functions.addSeries);
-            $.each(settings.titles, functions.setTitle);
+            settings.series.forEach(functions.addSeries.bind(this));
+            Object.entries(settings.titles).forEach(functions.setTitle.bind(this));
 
             if(settings.title) {
                 highchart.setTitle({
@@ -82,10 +89,10 @@ window.Chart = (function(element, config) {
         /**
          * Add the series name and data.
          *
-         * @param {number} index
          * @param {object} serie
+         * @param {number} index
          */
-        addSeries: function(index, serie) {
+        addSeries: function(serie, index) {
             if(settings.dynamic) {
                 highchart.addSeries(serie);
 
@@ -102,16 +109,18 @@ window.Chart = (function(element, config) {
                 }, false);
             }
 
-            highchart.series[index].setData(serie.data);
+            if (highchart.series[index]) {
+                highchart.series[index].setData(serie.data);
+            }
         },
 
         /**
          * Set the chart titles.
          *
-         * @param {string} key
          * @param {string} title
+         * @param {string} key
          */
-        setTitle: function(key, title) {
+        setTitle: function(title, key) {
             if(highchart[key]) {
                 highchart[key][0].setTitle({
                     text: title

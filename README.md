@@ -2,6 +2,9 @@
 
 [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-stats]
 
+> **⚠ WARNING: No maintenance intended**  
+> This package is not actively maintained.
+
 ## Add highcharts to the page with ajax.
 
 This package use highcharts 6.0.x.
